@@ -36,6 +36,7 @@ clean: down
 fclean: clean
 	@echo "$(RED)Deep cleaning: removing volumes and data folders...$(RESET)"
 	@docker volume rm $$(docker volume ls -q) || true
-	@rm -rf /home/sasakuya/data
+	@sudo rm -rf /home/sasakuya/data
+	@docker system prune -af --volumes
 
 .PHONY: all setup build up down re clean fclean
